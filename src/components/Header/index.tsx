@@ -1,11 +1,27 @@
+import dayjs from 'dayjs';
 import React from 'react';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { HeaderWrap } from './styles';
+import { useCallback } from 'react';
+import useDateStore from '../../store/useDateStore';
+import { HeaderWrap, Arrow } from './styles';
 
 const Header = () => {
+  const { baseDate, addMonth, subMonth } = useDateStore();
+
+  const onIncreaseMonth = useCallback(() => {
+    addMonth();
+  }, []);
+
+  const onDecreaseMonth = useCallback(() => {
+    subMonth();
+  }, []);
+
   return (
     <HeaderWrap>
-      <div>2023년 01월</div>
+      <Arrow onClick={onDecreaseMonth}>&lt;</Arrow>
+      <div>
+        {baseDate.get('year')}년 {baseDate.get('month') + 1}월
+      </div>
+      <Arrow onClick={onIncreaseMonth}>&gt;</Arrow>
     </HeaderWrap>
   );
 };

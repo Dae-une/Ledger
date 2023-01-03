@@ -10,3 +10,8 @@ export const HeaderWrap = styled.div`
     font-size: 22px;
   }
 `;
+
+export const Arrow = styled.div`
+  padding: 0 1.5rem;
+  cursor: pointer;
+`;

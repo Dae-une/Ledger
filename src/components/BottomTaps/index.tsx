@@ -27,7 +27,7 @@ const BottomTaps = () => {
     <BottomTapWrap>
       <ButtonsWrap>
         {BottomTapsLinks.map((link) => (
-          <TapButton to={link.path}>
+          <TapButton to={link.path} key={link.title}>
             <img src={link.icon} />
           </TapButton>
         ))}
