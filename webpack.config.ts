@@ -1,47 +1,58 @@
-import path from "path";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import webpack, { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
+import path from 'path';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import webpack, { Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const config: Configuration = {
-  name: "ledger",
-  mode: isDevelopment ? "development" : "production",
-  devtool: !isDevelopment ? "hidden-source-map" : "eval",
+  name: 'ledger',
+  mode: isDevelopment ? 'development' : 'production',
+  devtool: !isDevelopment ? 'hidden-source-map' : 'eval',
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   entry: {
-    app: "./client",
+    app: './client',
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
-          presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+          presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
           env: {
             development: {
-              plugins: [["@emotion/babel-plugin"], require.resolve("react-refresh/babel")],
+              plugins: [['@emotion/babel-plugin'], require.resolve('react-refresh/babel')],
             },
             production: {
-              plugins: ["@emotion/babel-plugin"],
+              plugins: ['@emotion/babel-plugin'],
             },
           },
         },
-        exclude: path.join(__dirname, "node_modules"),
+        exclude: path.join(__dirname, 'node_modules'),
       },
       {
         test: /\.css?$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
@@ -49,17 +60,17 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
-    new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? "development" : "production" }),
+    new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? 'development' : 'production' }),
   ],
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "[name].js",
-    publicPath: "/dist/",
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+    publicPath: '/dist/',
   },
   devServer: {
     historyApiFallback: true, // react router
     port: 3090,
-    devMiddleware: { publicPath: "/dist/" },
+    devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
   },
 };
