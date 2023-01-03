@@ -30,7 +30,10 @@ const config: Configuration = {
           presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
           env: {
             development: {
-              plugins: [require.resolve("react-refresh/babel")],
+              plugins: [["@emotion/babel-plugin"], require.resolve("react-refresh/babel")],
+            },
+            production: {
+              plugins: ["@emotion/babel-plugin"],
             },
           },
         },
