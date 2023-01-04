@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
+import Calnendar from '../components/Calendar/Calendar';
 
 const Ledger = () => {
-  return <div>가계부 만들곳</div>;
+  return (
+    <>
+      <Calnendar />
+    </>
+  );
 };
 
 export default Ledger;
