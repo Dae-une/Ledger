@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 import useDateStore from '../../store/useDateStore';
-import { DayWrap, IsToday ,IsSelected} from './styles';
+import { DayWrap, IsToday, IsSelected } from './styles';
 
 interface Props {
   date: Dayjs;
