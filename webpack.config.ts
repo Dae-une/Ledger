@@ -14,9 +14,18 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const config: Configuration = {
   name: 'ledger',
   mode: isDevelopment ? 'development' : 'production',
-  devtool: !isDevelopment ? 'hidden-source-map' : 'eval',
+  devtool: !isDevelopment ? 'hidden-source-map' : 'inline-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    fallback: {
+      timers: require.resolve('timers-browserify'),
+      http: require.resolve('stream-http'),
+      url: require.resolve('url/'),
+      https: require.resolve('https-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      assert: require.resolve('assert/'),
+      stream: require.resolve('stream-browserify'),
+    },
   },
   entry: {
     app: './client',

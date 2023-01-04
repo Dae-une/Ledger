@@ -1,5 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import React, { useCallback, useReducer } from 'react';
+import { useQuery } from 'react-query';
+import { getLedger } from '../../mocks/api';
 import useDateStore from '../../store/useDateStore';
 import createCalendar from '../../utils/createCalendar';
 import DateCell from '../DateCell/DateCell';
@@ -40,6 +42,9 @@ const Calnendar = () => {
     },
     [state],
   );
+
+  const { data } = useQuery(['ledger', baseDate.month()], () => getLedger(baseDate.format('YYYY-MM-DD')));
+  console.log(data);
 
   const monthList = createCalendar(baseDate);
 
