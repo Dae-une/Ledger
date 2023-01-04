@@ -1,5 +1,5 @@
 export interface LedgerType {
-  title: string;
+  type: string;
   desc: string;
   price: number;
   date: string;

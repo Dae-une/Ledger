@@ -5,6 +5,7 @@ import { getLedger } from '../../mocks/api';
 import useDateStore from '../../store/useDateStore';
 import createCalendar from '../../utils/createCalendar';
 import DateCell from '../DateCell/DateCell';
+import LedgerList from '../LedgerList/LedgerList';
 import { CalendarWrap, WeekWrap, WeekDayWrap } from './styles';
 
 interface Action {
@@ -44,7 +45,10 @@ const Calnendar = () => {
   );
 
   const { data } = useQuery(['ledger', baseDate.month()], () => getLedger(baseDate.format('YYYY-MM-DD')));
-  console.log(data);
+
+  const slectedData = data?.filter((v) => {
+    return v.date === state.id.format('YYYY-MM-DD');
+  });
 
   const monthList = createCalendar(baseDate);
 
@@ -59,11 +63,18 @@ const Calnendar = () => {
         {monthList.map((weeks, idx) => (
           <WeekWrap key={idx}>
             {weeks.map((date) => (
-              <DateCell date={date} key={date.date()} onClick={() => onSelect(date)} isSelected={isSelected(date)} />
+              <DateCell
+                date={date}
+                key={date.date()}
+                onClick={() => onSelect(date)}
+                isSelected={isSelected(date)}
+                list={data}
+              />
             ))}
           </WeekWrap>
         ))}
       </CalendarWrap>
+      <LedgerList list={slectedData} />
     </>
   );
 };

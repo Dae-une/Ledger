@@ -2,11 +2,14 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const BottomTapWrap = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 5rem;
   width: 100%;
+  max-width: 37.5rem;
   border-top: 1px solid rgb(228, 228, 228);
+  z-index: 100;
+  background-color: white;
 `;
 
 export const ButtonsWrap = styled.div`

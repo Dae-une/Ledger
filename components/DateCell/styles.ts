@@ -14,6 +14,13 @@ export const DayWrap = styled.div<Props>`
   color: ${(props) => (props.isSunday ? 'red' : null)};
   opacity: ${(props) => (props.isCurrentMonth ? 1 : 0.5)};
   cursor: pointer;
+  div {
+    position: absolute;
+    bottom: 1.4rem;
+    font-size: 0.7rem;
+    max-width: 3.5rem;
+    word-wrap: break-word;
+  }
 `;
 
 export const IsToday = styled.div`
