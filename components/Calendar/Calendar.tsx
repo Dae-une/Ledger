@@ -24,8 +24,7 @@ const initialState: State = {
 };
 
 const reducer: React.Reducer<State, Action> = (state, action) => {
-  const reset = state.id.format('YY-MM-DD') === action.id.format('YY-MM-DD') && state.action === action.type;
-  return reset ? initialState : { action: action.type, id: action.id };
+  return { action: action.type, id: action.id };
 };
 
 const WEEK = ['일', '월', '화', '수', '목', '금', '토'];

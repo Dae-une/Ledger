@@ -25,3 +25,11 @@ export const ListStyle = styled.div`
     text-align: center;
   }
 `;
+
+export const Total = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 3rem;
+  align-items: center;
+`;
