@@ -10,14 +10,14 @@ const Ledger = () => {
 
   const { data } = useQuery(['ledger', baseDate.month()], () => getLedger(baseDate.format('YYYY-MM-DD')));
 
-  const slectedData = data?.filter((v) => {
+  const selectedData = data?.filter((v) => {
     return v.date === selectedDate.format('YYYY-MM-DD');
   });
 
   return (
     <>
       <Calendar data={data} />
-      <LedgerList list={slectedData} />
+      <LedgerList list={selectedData} />
     </>
   );
 };

@@ -13,7 +13,6 @@ export const ListWrap = styled.div`
 `;
 
 export const ListStyle = styled.div`
-  list-style: none;
   display: flex;
   justify-content: space-around;
   align-items: center;

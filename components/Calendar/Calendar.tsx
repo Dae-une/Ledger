@@ -1,7 +1,7 @@
 import { Dayjs } from 'dayjs';
 import React, { useCallback } from 'react';
 import useDateStore from '../../store/useDateStore';
-import { LedgerType } from '../../types/types';
+import { LedgerType, ScheduleType } from '../../types/types';
 import createCalendar from '../../utils/createCalendar';
 import DateCell from '../DateCell/DateCell';
 import { CalendarWrap, WeekWrap, WeekDayWrap } from './styles';
@@ -9,7 +9,7 @@ import { CalendarWrap, WeekWrap, WeekDayWrap } from './styles';
 const WEEK = ['일', '월', '화', '수', '목', '금', '토'];
 
 interface Props {
-  data: LedgerType[] | undefined;
+  data: LedgerType[] | ScheduleType[] | undefined;
 }
 
 const Calendar = ({ data }: Props) => {

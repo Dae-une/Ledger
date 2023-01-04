@@ -1,14 +1,14 @@
 import dayjs, { Dayjs } from 'dayjs';
-import React from 'react';
+import React, { useCallback } from 'react';
 import useDateStore from '../../store/useDateStore';
-import { LedgerType } from '../../types/types';
+import { LedgerType, ScheduleType } from '../../types/types';
 import { DayWrap, IsToday, IsSelected, Dot, DotWrap } from './styles';
 
 interface Props {
   date: Dayjs;
   onClick: (date: Dayjs) => void;
   isSelected: boolean;
-  list: LedgerType[] | undefined;
+  list: LedgerType[] | ScheduleType[] | undefined;
 }
 
 const DateCell = ({ date, onClick, isSelected, list }: Props) => {
@@ -22,7 +22,11 @@ const DateCell = ({ date, onClick, isSelected, list }: Props) => {
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
   };
 
-  const data = list?.filter((v) => v.date === date.format('YYYY-MM-DD'));
+  const getFilteredData = useCallback((arr: any[] | undefined) => {
+    return arr?.filter((v) => v.date === date.format('YYYY-MM-DD'));
+  }, []);
+
+  const data = getFilteredData(list);
 
   return (
     <>
