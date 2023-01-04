@@ -3,12 +3,15 @@ import create from 'zustand';
 
 interface DateStore {
   baseDate: Dayjs;
+  selectedDate: Dayjs;
   addMonth: () => void;
   subMonth: () => void;
+  selectDate: (date: Dayjs) => void;
 }
 
 const useDateStore = create<DateStore>()((set, get) => ({
   baseDate: dayjs(),
+  selectedDate: dayjs(),
 
   addMonth: () =>
     set((state) => ({
@@ -17,6 +20,11 @@ const useDateStore = create<DateStore>()((set, get) => ({
   subMonth: () =>
     set((state) => ({
       baseDate: state.baseDate.subtract(1, 'month'),
+    })),
+  selectDate: (date: Dayjs) =>
+    set((state) => ({
+      ...state,
+      selectedDate: date,
     })),
 }));
 

@@ -8,19 +8,12 @@ interface Props {
 export const DayWrap = styled.div<Props>`
   width: 100%;
   display: flex;
+  flex-direction: column;
   position: relative;
-  justify-content: center;
-  /* border: 1px black solid; */
+  align-items: center;
   color: ${(props) => (props.isSunday ? 'red' : null)};
   opacity: ${(props) => (props.isCurrentMonth ? 1 : 0.5)};
   cursor: pointer;
-  div {
-    position: absolute;
-    bottom: 1.4rem;
-    font-size: 0.7rem;
-    max-width: 3.5rem;
-    word-wrap: break-word;
-  }
 `;
 
 export const IsToday = styled.div`
@@ -43,4 +36,20 @@ export const IsSelected = styled.div`
   border-radius: 50%;
   top: -0.3rem;
   z-index: 10;
+`;
+
+export const DotWrap = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  width: 3rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+`;
+
+export const Dot = styled.div<{ color: string }>`
+  width: 0.3rem;
+  height: 0.3rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: ${(props) => (props.color ? `${props.color}` : null)};
 `;

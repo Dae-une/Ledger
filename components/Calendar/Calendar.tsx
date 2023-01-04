@@ -1,53 +1,30 @@
-import dayjs, { Dayjs } from 'dayjs';
-import React, { useCallback, useReducer } from 'react';
-import { useQuery } from 'react-query';
-import { getLedger } from '../../mocks/api';
+import { Dayjs } from 'dayjs';
+import React, { useCallback } from 'react';
 import useDateStore from '../../store/useDateStore';
+import { LedgerType } from '../../types/types';
 import createCalendar from '../../utils/createCalendar';
 import DateCell from '../DateCell/DateCell';
-import LedgerList from '../LedgerList/LedgerList';
 import { CalendarWrap, WeekWrap, WeekDayWrap } from './styles';
-
-interface Action {
-  type: 'CLICK';
-  id: Dayjs;
-}
-
-interface State {
-  action: Action['type'] | '';
-  id: Dayjs;
-}
-
-const initialState: State = {
-  action: '',
-  id: dayjs(),
-};
-
-const reducer: React.Reducer<State, Action> = (state, action) => {
-  return { action: action.type, id: action.id };
-};
 
 const WEEK = ['일', '월', '화', '수', '목', '금', '토'];
 
-const Calnendar = () => {
-  const { baseDate } = useDateStore();
-  const [state, dispatch] = useReducer(reducer, initialState);
+interface Props {
+  data: LedgerType[] | undefined;
+}
+
+const Calendar = ({ data }: Props) => {
+  const { baseDate, selectedDate, selectDate } = useDateStore();
 
   const onSelect = useCallback((id: Dayjs) => {
-    dispatch({ type: 'CLICK', id });
+    selectDate(id);
   }, []);
+
   const isSelected = useCallback(
     (date: Dayjs) => {
-      return state.id.format('YY-MM-DD') === date.format('YY-MM-DD');
+      return selectedDate.format('YY-MM-DD') === date.format('YY-MM-DD');
     },
-    [state],
+    [selectedDate],
   );
-
-  const { data } = useQuery(['ledger', baseDate.month()], () => getLedger(baseDate.format('YYYY-MM-DD')));
-
-  const slectedData = data?.filter((v) => {
-    return v.date === state.id.format('YYYY-MM-DD');
-  });
 
   const monthList = createCalendar(baseDate);
 
@@ -73,9 +50,8 @@ const Calnendar = () => {
           </WeekWrap>
         ))}
       </CalendarWrap>
-      <LedgerList list={slectedData} />
     </>
   );
 };
 
-export default Calnendar;
+export default Calendar;

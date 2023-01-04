@@ -1,7 +1,12 @@
 import React from 'react';
+import Calendar from '../components/Calendar/Calendar';
 
 const Schedule = () => {
-  return <div>일정 만들곳</div>;
+  return (
+    <>
+      <Calendar data={undefined} />
+    </>
+  );
 };
 
 export default Schedule;

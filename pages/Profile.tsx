@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import Calnendar from '../components/Calendar/Calendar';
 
 const Profile = () => {
-  return <div>프로필 만들곳</div>;
+  return <>프로필</>;
 };
 
 export default Profile;
