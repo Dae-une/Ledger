@@ -21,7 +21,7 @@ export { fireStore };
 
 export const addNewLedger = async (data: LedgerType) => {
   const id = uuid();
-  const ledgerRef = doc(fireStore, 'leedger', id);
+  const ledgerRef = doc(fireStore, 'ledger', id);
 
   await setDoc(ledgerRef, data);
 };

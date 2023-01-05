@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import AddButton from '../components/AddButton/AddButton';
 import Calendar from '../components/Calendar/Calendar';
 import LedgerList from '../components/LedgerList/LedgerList';
 import { getLedger } from '../mocks/api';
@@ -18,6 +19,7 @@ const Ledger = () => {
     <>
       <Calendar data={data} />
       <LedgerList list={selectedData} />
+      <AddButton />
     </>
   );
 };
