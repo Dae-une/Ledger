@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScheduleList render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-rjennl"
+  >
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목
+      </div>
+      <div>
+        내용
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목2
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵2
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목3
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵3
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목4
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵2
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목5
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵1
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목5
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵1
+      </div>
+    </div>
+    <div
+      class="css-172fik6"
+    >
+      <div>
+        제목
+      </div>
+      <div>
+        무슨일인지 쥬르르르르르르르르륵
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

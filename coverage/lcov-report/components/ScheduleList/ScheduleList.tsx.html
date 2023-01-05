@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/BottomTaps/BottomTaps.tsx</title>
+    <title>Code coverage report for components/ScheduleList/ScheduleList.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/BottomTaps</a> BottomTaps.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/ScheduleList</a> ScheduleList.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -94,43 +94,27 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,44 +126,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { BottomTapWrap, ButtonsWrap, TapButton } from './styles';
-import home from '../../static/Icons/home.svg';
-import profile from '../../static/Icons/profile.svg';
-import schedule from '../../static/Icons/schedule.svg';
+import { ScheduleType } from '../../types/types';
+import { Empty } from '../LedgerList/styles';
+import { ListWrap, ListStyle } from './styles';
 &nbsp;
-export const BottomTapsLinks = [
-  {
-    title: '메인',
-    path: '/',
-    icon: home,
-  },
-  {
-    title: '일정',
-    path: '/schedule',
-    icon: schedule,
-  },
-  {
-    title: '프로필',
-    path: '/profile',
-    icon: profile,
-  },
-];
+interface Props {
+  list: ScheduleType[] | undefined;
+}
 &nbsp;
-const BottomTaps = () =&gt; {
+const ScheduleList = ({ list }: Props) =&gt; {
+  if (!list<span class="branch-0 cbranch-no" title="branch not covered" >?.l</span>ength) {
+    return &lt;Empty&gt; 일정이 없어요.&lt;/Empty&gt;;
+  }
+&nbsp;
   return (
-    &lt;BottomTapWrap&gt;
-      &lt;ButtonsWrap&gt;
-        {BottomTapsLinks.map((link) =&gt; (
-          &lt;TapButton to={link.path} key={link.title}&gt;
-            &lt;img src={link.icon} /&gt;
-          &lt;/TapButton&gt;
-        ))}
-      &lt;/ButtonsWrap&gt;
-    &lt;/BottomTapWrap&gt;
+    &lt;ListWrap&gt;
+      &lt;ListStyle&gt;
+        &lt;div&gt;제목&lt;/div&gt;
+        &lt;div&gt;내용&lt;/div&gt;
+      &lt;/ListStyle&gt;
+      {list.map((data) =&gt; (
+        &lt;ListStyle&gt;
+          &lt;div&gt;{data.title}&lt;/div&gt;
+          &lt;div&gt;{data.desc}&lt;/div&gt;
+        &lt;/ListStyle&gt;
+      ))}
+    &lt;/ListWrap&gt;
   );
 };
 &nbsp;
-export default BottomTaps;
+export default ScheduleList;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
