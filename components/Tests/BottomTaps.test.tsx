@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { withRouter } from '../../tests/utils';
-import BottomTaps, { BottomTapsLinks } from '../BottomTaps';
+import BottomTaps, { BottomTapsLinks } from '../BottomTaps/BottomTaps';
 
 describe('BottomTaps', () => {
   test('should link', () => {

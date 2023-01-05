@@ -30,7 +30,12 @@ const DateCell = ({ date, onClick, isSelected, list }: Props) => {
 
   return (
     <>
-      <DayWrap isCurrentMonth={isCurrentMonth} isSunday={isSunday} onClick={() => onClick?.(date)}>
+      <DayWrap
+        isCurrentMonth={isCurrentMonth}
+        isSunday={isSunday}
+        onClick={() => onClick?.(date)}
+        data-testid="DateCellBtn"
+      >
         {isToday && <IsToday />}
         {isSelected && <IsSelected />}
         <span>{date.date()}</span>

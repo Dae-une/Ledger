@@ -1,14 +1,14 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import React from 'react';
-import Header from '../Header';
+import Header from '../Header/Header';
 import useDateStore from '../../store/useDateStore';
 import { withRouter } from '../../tests/utils';
 import { Route } from 'react-router-dom';
 
 const originalState = useDateStore.getState();
 
-beforeEach(() => {
+afterEach(() => {
   useDateStore.setState(originalState);
 });
 

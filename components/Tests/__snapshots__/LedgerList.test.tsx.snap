@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LedgerList render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-rjennl"
+  >
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        타입
+      </div>
+      <div>
+        내역
+      </div>
+      <div>
+        금액
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        식사
+      </div>
+      <div>
+        OO과 식사
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        구매
+      </div>
+      <div>
+        코딩 책 구매
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        저축
+      </div>
+      <div>
+        적금 
+      </div>
+      <div>
+        50,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        식사
+      </div>
+      <div>
+        OO과 식사
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        식사
+      </div>
+      <div>
+        OO과 식사
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        식사
+      </div>
+      <div>
+        OO과 식사
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-sofpfz"
+    >
+      <div>
+        식사
+      </div>
+      <div>
+        OO과 식사
+      </div>
+      <div>
+        14,000원
+      </div>
+    </div>
+    <div
+      class="css-vuuins"
+    >
+      <span>
+        총 금액 
+      </span>
+      <span>
+        134,000원
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

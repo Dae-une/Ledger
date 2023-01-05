@@ -1,8 +1,8 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import BottomTaps from '../../components/BottomTaps';
-import Header from '../../components/Header';
+import BottomTaps from '../../components/BottomTaps/BottomTaps';
+import Header from '../../components/Header/Header';
 import Ledger from '../../pages/Ledger';
 import Profile from '../../pages/Profile';
 import Schedule from '../../pages/Schedule';
