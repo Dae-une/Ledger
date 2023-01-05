@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import create from 'zustand';
 
-interface DateStore {
+export interface DateStore {
   baseDate: Dayjs;
   selectedDate: Dayjs;
   addMonth: () => void;

@@ -1,5 +1,5 @@
 export interface LedgerType {
-  type: string;
+  type: '식사' | '구매' | '교통비' | '저축'
   desc: string;
   price: number;
   date: string;

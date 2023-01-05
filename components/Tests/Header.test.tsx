@@ -1,29 +1,50 @@
-import { act, cleanup, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import React from 'react';
 import Header from '../Header';
 import useDateStore from '../../store/useDateStore';
+import { withRouter } from '../../tests/utils';
+import { Route } from 'react-router-dom';
 
-jest.mock('../../store/useDateStore', () => ({
-  useDateStore: jest.fn(),
-}));
+const originalState = useDateStore.getState();
 
-const mockedDate = useDateStore as unknown as jest.MockedFn<typeof useDateStore>;
+beforeEach(() => {
+  useDateStore.setState(originalState);
+});
 
 describe('Header ', () => {
-  afterEach(cleanup);
-
   it('should render', () => {
-    const baseDate = dayjs();
-    mockedDate.mockImplementationOnce(() => {
-      return {
-        baseDate: dayjs(),
-        addMonth: jest.fn(),
-        subMonth: jest.fn(),
-      };
-    });
+    render(withRouter(<Route path="/" element={<Header />} />));
+    const { baseDate } = originalState;
 
-    render(<Header />);
     expect(screen.getByText(`${baseDate.get('year')}년 ${baseDate.get('month') + 1}월`)).toBeTruthy();
+  });
+
+  it('우측 버튼을 누르면 month가 증가 한다', () => {
+    render(withRouter(<Route path="/" element={<Header />} />));
+    const { baseDate } = originalState;
+    const button = screen.getByTestId('rightArrow');
+    fireEvent.click(button);
+    const date = baseDate.add(1, 'month');
+
+    expect(screen.getByText(`${date.get('year')}년 ${date.get('month') + 1}월`)).toBeTruthy();
+  });
+
+  it('좌측 버튼을 누르면 month가 증가 한다', () => {
+    render(withRouter(<Route path="/" element={<Header />} />));
+    const { baseDate } = originalState;
+    const button = screen.getByTestId('leftArrow');
+    fireEvent.click(button);
+    const date = baseDate.subtract(1, 'month');
+
+    expect(screen.getByText(`${date.get('year')}년 ${date.get('month') + 1}월`)).toBeTruthy();
+  });
+
+  it('프로필 페이지에선 헤더가 보이지 않는다.', async () => {
+    const { container } = render(withRouter(<Route path="/profile" element={<Header />} />));
+
+    await waitFor(() => {
+      expect(container.childElementCount).toEqual(0);
+    });
   });
 });

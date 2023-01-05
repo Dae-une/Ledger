@@ -22,11 +22,15 @@ const Header = () => {
 
   return (
     <HeaderWrap>
-      <Arrow onClick={onDecreaseMonth}>&lt;</Arrow>
+      <Arrow data-testid="leftArrow" onClick={onDecreaseMonth}>
+        &lt;
+      </Arrow>
       <div>
         {baseDate.get('year')}년 {baseDate.get('month') + 1}월
       </div>
-      <Arrow onClick={onIncreaseMonth}>&gt;</Arrow>
+      <Arrow data-testid="rightArrow" onClick={onIncreaseMonth}>
+        &gt;
+      </Arrow>
     </HeaderWrap>
   );
 };
