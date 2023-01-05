@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addNewLedger } from '../../api/firebase';
 import changeInPrice from '../../utils/changeInPrice';
+import InfoModal from '../InfoModal/InfoModal';
 import MiniCalendar from '../MiniCalendar/MiniCalendar';
 import { ModalHeader, InputWrap, ButtonWrap } from './styles';
 
@@ -12,6 +13,7 @@ const LedgerRegist = () => {
   const [desc, setDesc] = useState('');
   const [price, setPrice] = useState(0);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
   const navigate = useNavigate();
 
   const onChangePrice = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,9 +39,10 @@ const LedgerRegist = () => {
 
   const onSubmit = useCallback(() => {
     addNewLedger({ type, date, desc, price });
+    setShowInfoModal(true);
   }, [type, date, desc, price]);
 
-  const onCancle = useCallback(() => {
+  const goBack = useCallback(() => {
     navigate(-1);
   }, []);
 
@@ -64,9 +67,12 @@ const LedgerRegist = () => {
         <input placeholder="종류를 입력해주세요." value={type} onChange={onChangeType} />
       </InputWrap>
       <ButtonWrap>
-        <button onClick={onCancle}>취소하기</button>
+        <button onClick={goBack}>취소하기</button>
         <button onClick={onSubmit}>저장하기</button>
       </ButtonWrap>
+      {showInfoModal && (
+        <InfoModal setShowModal={setShowInfoModal} message={'등록되었습니다.'} btnText={'확인'} linkTo={goBack} />
+      )}
     </>
   );
 };
