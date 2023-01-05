@@ -4,7 +4,7 @@ import home from '../../static/Icons/home.svg';
 import profile from '../../static/Icons/profile.svg';
 import schedule from '../../static/Icons/schedule.svg';
 
-const BottomTapsLinks = [
+export const BottomTapsLinks = [
   {
     title: '메인',
     path: '/',
