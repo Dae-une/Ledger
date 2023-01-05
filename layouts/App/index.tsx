@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Ledger from '../../pages/Ledger';
 import Profile from '../../pages/Profile';
 import Schedule from '../../pages/Schedule';
+import SignIn from '../../pages/SignIn';
 import { AppContainer } from './styles';
 
 if (process.env.NODE_ENV === 'development') {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/" element={<Ledger />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/signin" element={<SignIn />} />
           </Routes>
           <BottomTaps />
         </BrowserRouter>

@@ -1,8 +1,12 @@
 import React from 'react';
-import Calnendar from '../components/Calendar/Calendar';
+import UserInfo from '../components/UserInfo/UserInfo';
 
 const Profile = () => {
-  return <>프로필</>;
+  return (
+    <>
+      <UserInfo />
+    </>
+  );
 };
 
 export default Profile;

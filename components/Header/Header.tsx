@@ -16,7 +16,7 @@ const Header = () => {
     subMonth();
   }, []);
 
-  if (pathname === '/profile') {
+  if (pathname === '/profile' || pathname === '/signin') {
     return null;
   }
 

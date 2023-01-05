@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BottomTapWrap, ButtonsWrap, TapButton } from './styles';
 import home from '../../static/Icons/home.svg';
 import profile from '../../static/Icons/profile.svg';
 import schedule from '../../static/Icons/schedule.svg';
+import useUserStore from '../../store/useUserStore';
+import { useNavigate } from 'react-router-dom';
 
 export const BottomTapsLinks = [
   {
@@ -23,6 +25,16 @@ export const BottomTapsLinks = [
 ];
 
 const BottomTaps = () => {
+  const { userName } = useUserStore();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userName) {
+      navigate('/signin');
+    }
+  }, []);
+
+  console.log(userName);
   return (
     <BottomTapWrap>
       <ButtonsWrap>

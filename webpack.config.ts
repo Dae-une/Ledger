@@ -2,6 +2,7 @@ import path from 'path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import webpack, { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import Dotenv from 'dotenv-webpack';
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
@@ -66,6 +67,7 @@ const config: Configuration = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
