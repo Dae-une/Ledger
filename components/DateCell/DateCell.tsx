@@ -29,8 +29,6 @@ const DateCell = ({ date, onClick, isSelected, list }: Props) => {
 
   const data = getFilteredData(list);
 
-  console.log(data);
-
   return (
     <>
       <DayWrap

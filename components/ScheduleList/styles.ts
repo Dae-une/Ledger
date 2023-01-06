@@ -11,6 +11,7 @@ export const ListStyle = styled.div`
   text-align: center;
   align-items: center;
   border-bottom: 1px solid rgb(228, 228, 228);
+  cursor: pointer;
   & :first-child {
     width: 30%;
   }

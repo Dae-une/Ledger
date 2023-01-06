@@ -45,24 +45,28 @@ export const ledgerData = [
 
 export const scheduleData = [
   {
+    id: 1,
     title: '제목',
     desc: '무슨일인지 쥬르르르르르르르르륵',
     startDate: '2023-01-14',
     endDate: '2023-01-14',
   },
   {
+    id: 1,
     title: '제목2',
     desc: '무슨일인지 쥬르르르르르르르르륵2',
     startDate: '2023-01-14',
     endDate: '2023-01-14',
   },
   {
+    id: 1,
     title: '제목3',
     desc: '무슨일인지 쥬르르르르르르르르륵3',
     startDate: '2023-01-14',
     endDate: '2023-01-14',
   },
   {
+    id: 1,
     title: '제목4',
     desc: '무슨일인지 쥬르르르르르르르르륵2',
     startDate: '2023-01-14',

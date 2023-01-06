@@ -10,29 +10,6 @@ export const Header = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const InputWrap = styled.div`
-  width: 100%;
-  display: flex;
-  height: 3rem;
-  border-bottom: 1px solid rgb(228, 228, 228);
-  align-items: center;
-  label,
-  div {
-    font-size: 1rem;
-    text-align: center;
-    width: 20%;
-  }
-  input,
-  textarea {
-    cursor: pointer;
-    resize: none;
-    outline: none;
-    border: none;
-    height: 1.3rem;
-    width: 100%;
-  }
-`;
-
 export const ButtonWrap = styled.div`
   margin-top: 5rem;
   display: flex;

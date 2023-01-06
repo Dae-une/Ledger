@@ -23,8 +23,6 @@ const Schedule = () => {
     getList();
   }, [baseDate]);
 
-  console.log(data);
-
   return (
     <>
       <Header />

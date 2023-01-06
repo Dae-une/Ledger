@@ -26,27 +26,6 @@ export const TitleInput = styled.input`
   border-bottom: 1px solid rgb(228, 228, 228);
 `;
 
-export const InputWrap = styled.div`
-  width: 100%;
-  display: flex;
-  height: 3rem;
-  border-bottom: 1px solid rgb(228, 228, 228);
-  align-items: center;
-  label,
-  div {
-    font-size: 1rem;
-    text-align: center;
-    width: 20%;
-  }
-  input {
-    outline: none;
-    border: none;
-    height: 1.3rem;
-    width: 100%;
-    cursor: pointer;
-  }
-`;
-
 export const ButtonWrap = styled.div`
   margin-top: 5rem;
   display: flex;

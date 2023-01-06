@@ -41,13 +41,15 @@ interface ScheduleDB {
 }
 
 export const addNewLedger = async (data: LedgerDB) => {
+  const id = uuid();
   const ledgerRef = collection(fireStore, 'ledger');
-  await addDoc(ledgerRef, data);
+  await addDoc(ledgerRef, { ...data, id });
 };
 
 export const addNewSchedule = async (data: ScheduleDB) => {
+  const id = uuid();
   const scheduleRef = collection(fireStore, 'schedule');
-  await addDoc(scheduleRef, data);
+  await addDoc(scheduleRef, { ...data, id });
 };
 
 function numberPad(n: number, width: number) {
@@ -65,6 +67,7 @@ export const getLedgerList = async (month: number) => {
   const newData = data.docs.map((doc) => ({ ...doc.data() }));
   newData.map((data) => {
     returnData.push({
+      id: data.id,
       type: data.type,
       price: data.price,
       desc: data.desc,
@@ -85,11 +88,33 @@ export const getScheduleList = async (month: number) => {
 
   newData.map((data) => {
     returnData.push({
+      id: data.id,
       title: data.title,
       desc: data.desc,
       startDate: `${data.startYear}-${data.startMonth}-${data.startDate}`,
       endDate: `${data.endYear}-${data.endMonth}-${data.endDate}`,
     });
+  });
+
+  return returnData;
+};
+
+export const getSchedule = async (id: string) => {
+  const scheduleRef = collection(fireStore, 'schedule');
+
+  const target = query(scheduleRef, where('id', '==', `${id}`));
+  const data = await getDocs(target);
+  const newData = data.docs.map((doc) => ({ ...doc.data() }));
+  let returnData: ScheduleType | null = null;
+
+  newData.map((data) => {
+    returnData = {
+      id: data.id,
+      title: data.title,
+      desc: data.desc,
+      startDate: data.startDate,
+      endDate: data.enDate,
+    };
   });
 
   return returnData;

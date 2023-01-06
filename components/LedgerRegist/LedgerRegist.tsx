@@ -4,38 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { addNewLedger } from '../../api/firebase';
 import changeInPrice from '../../utils/changeInPrice';
 import InfoModal from '../InfoModal/InfoModal';
-import MiniCalendar from '../MiniCalendar/MiniCalendar';
-import { Header, InputWrap, ButtonWrap, GoBack } from './styles';
+import TextInput from '../Common/TextInput/TextInput';
+import { Header, ButtonWrap, GoBack } from './styles';
+import NumberInput from '../Common/NumberInput/NumberInput';
+import CalendarInput from '../Common/CalendarInput/CalendarInput';
 
 const LedgerRegist = () => {
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [type, setType] = useState('');
   const [desc, setDesc] = useState('');
   const [price, setPrice] = useState(0);
-  const [showCalendar, setShowCalendar] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const navigate = useNavigate();
-
-  const onChangePrice = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const regex = /[^0-9]/g;
-    const value = e.target.value.replace(regex, '');
-    if (!value) {
-      return setPrice(0);
-    }
-    setPrice(parseInt(value));
-  }, []);
-
-  const onChangeDesc = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setDesc(e.target.value);
-  }, []);
-
-  const onChangeType = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setType(e.target.value);
-  }, []);
-
-  const onShowCalendar = useCallback(() => {
-    setShowCalendar((prev) => !prev);
-  }, []);
 
   const onSubmit = useCallback(() => {
     const [year, month, iDate] = date.split('-');
@@ -53,23 +33,10 @@ const LedgerRegist = () => {
         <GoBack onClick={goBack}>&lt;</GoBack>
         <span>가계부 등록</span>
       </Header>
-      <InputWrap>
-        <label>날짜</label>
-        <input placeholder={date} readOnly value={date} onClick={onShowCalendar} />
-      </InputWrap>
-      {showCalendar && <MiniCalendar setDate={setDate} setShowCalendar={setShowCalendar} />}
-      <InputWrap>
-        <label>내역</label>
-        <textarea placeholder="상세 내역을 입력해주세요." onChange={onChangeDesc} />
-      </InputWrap>
-      <InputWrap>
-        <label>금액</label>
-        <input placeholder="0" value={changeInPrice(price)} onChange={onChangePrice} />
-      </InputWrap>
-      <InputWrap>
-        <label>종류</label>
-        <input placeholder="종류를 입력해주세요." value={type} onChange={onChangeType} />
-      </InputWrap>
+      <CalendarInput label="날짜" placeholder={date} setState={setDate} value={date} />
+      <TextInput label={'내역'} placeholder={'상세 내역을 입력해주세요.'} value={desc} setState={setDesc} />
+      <NumberInput label={'금액'} placeholder={'0'} value={changeInPrice(price)} setState={setPrice} />
+      <TextInput label={'종류'} placeholder={'종류를 입력해주세요.'} value={type} setState={setType} />
       <ButtonWrap>
         <button onClick={goBack}>취소하기</button>
         <button onClick={onSubmit}>저장하기</button>
