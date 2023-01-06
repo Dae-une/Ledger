@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addNewSchedule } from '../../api/firebase';
+import { addNewSchedule } from '../../api/Schedule';
 import CalendarInput from '../Common/CalendarInput/CalendarInput';
 import TextInput from '../Common/TextInput/TextInput';
 import InfoModal from '../InfoModal/InfoModal';

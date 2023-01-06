@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getScheduleList } from '../api/firebase';
+import { getScheduleList } from '../api/Schedule';
 import AddButton from '../components/AddButton/AddButton';
 import Calendar from '../components/Calendar/Calendar';
 import Header from '../components/Header/Header';

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addNewLedger } from '../../api/firebase';
+import { addNewLedger } from '../../api/Ledger';
 import changeInPrice from '../../utils/changeInPrice';
 import InfoModal from '../InfoModal/InfoModal';
 import TextInput from '../Common/TextInput/TextInput';

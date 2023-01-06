@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getLedgerList } from '../api/firebase';
+import { getLedgerList } from '../api/Ledger';
 import AddButton from '../components/AddButton/AddButton';
 import Calendar from '../components/Calendar/Calendar';
 import Header from '../components/Header/Header';
