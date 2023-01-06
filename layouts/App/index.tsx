@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BottomTaps from '../../components/BottomTaps/BottomTaps';
 import Ledger from '../../pages/Ledger';
+import LedgerDetail from '../../pages/LedgerDetail';
 import Profile from '../../pages/Profile';
 import RegistLedger from '../../pages/RegistLedger';
 import RegistSchedule from '../../pages/RegistSchedule';
@@ -24,7 +25,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Ledger />} />
             <Route path="/regist" element={<RegistLedger />} />
-            {/* <Route path="/detail/:id" element={< />} /> */}
+            <Route path="/detail/:id" element={<LedgerDetail />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/schedule/regist" element={<RegistSchedule />} />
             <Route path="/schedule/detail/:id" element={<ScheduleDetail />} />

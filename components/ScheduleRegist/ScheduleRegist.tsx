@@ -53,10 +53,10 @@ const ScheduleRegist = () => {
         <button onClick={onSubmit}>저장하기</button>
       </ButtonWrap>
       {showInfoModal && (
-        <InfoModal setShowModal={setShowInfoModal} message={'등록되었습니다.'} btnText={'확인'} linkTo={goBack} />
+        <InfoModal setShowModal={setShowInfoModal} message={'등록되었어요.'} btnText={'확인'} linkTo={goBack} />
       )}
       {showErrorModal && (
-        <InfoModal setShowModal={setShowErroModal} message={'입력이 잘못되었습니다.'} btnText={'확인'} />
+        <InfoModal setShowModal={setShowErroModal} message={'입력하지 않은 곳이 있어요.'} btnText={'확인'} />
       )}
     </>
   );

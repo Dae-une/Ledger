@@ -48,7 +48,7 @@ export const getSchedule = async (id: string) => {
   const target = query(scheduleRef, where('id', '==', `${id}`));
   const data = await getDocs(target);
   const newData = data.docs.map((doc) => ({ ...doc.data() }));
-  let returnData: ScheduleType[] = [];
+  const returnData: ScheduleType[] = [];
 
   newData.map((data) => {
     returnData.push({

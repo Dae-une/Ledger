@@ -1,4 +1,4 @@
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { v4 as uuid } from 'uuid';
 import { LedgerType } from '../types/types';
 import { numberPad } from '../utils/numberPad';
@@ -38,4 +38,47 @@ export const getLedgerList = async (month: number) => {
   });
 
   return returnData;
+};
+
+export const getLedger = async (id: string) => {
+  const ledgerRef = collection(fireStore, 'ledger');
+
+  const target = query(ledgerRef, where('id', '==', `${id}`));
+  const data = await getDocs(target);
+  const newData = data.docs.map((doc) => ({ ...doc.data() }));
+  const returnData: LedgerType[] = [];
+
+  newData.map((data) => {
+    returnData.push({
+      id: data.id,
+      type: data.type,
+      price: data.price,
+      desc: data.desc,
+      date: `${data.year}-${data.month}-${data.date}`,
+    });
+  });
+
+  return returnData[0];
+};
+
+export const deleteLedger = async (id: string) => {
+  const ledgerRef = collection(fireStore, 'ledger');
+  const target = query(ledgerRef, where('id', '==', `${id}`));
+  const data = await getDocs(target);
+  const targetId = data.docs.map((doc) => {
+    return doc.id;
+  });
+  const ledgerDoc = doc(fireStore, 'ledger', targetId[0]);
+  await deleteDoc(ledgerDoc);
+};
+
+export const editLedger = async (id: string, data: LedgerDB) => {
+  const ledgerRef = collection(fireStore, 'ledger');
+  const target = query(ledgerRef, where('id', '==', `${id}`));
+  const res = await getDocs(target);
+  const targetId = res.docs.map((doc) => {
+    return doc.id;
+  });
+  const ledgerDoc = doc(fireStore, 'ledeger', targetId[0]);
+  await updateDoc(ledgerDoc, { ...data });
 };

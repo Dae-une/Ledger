@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LedgerType } from '../../types/types';
 import changeInPrice from '../../utils/changeInPrice';
 import { Empty, ListStyle, ListWrap, Total } from './styles';
@@ -8,9 +9,15 @@ interface Props {
 }
 
 const LedgerList = ({ list }: Props) => {
+  const navigate = useNavigate();
+
   const totalPrice = list?.reduce((acc, cur) => {
     return (acc += cur.price);
   }, 0);
+
+  const goDetail = useCallback((id: string) => {
+    navigate(`/detail/${id}`);
+  }, []);
 
   if (!list?.length) {
     return <Empty>내역이 없어요.</Empty>;
@@ -23,7 +30,7 @@ const LedgerList = ({ list }: Props) => {
         <div>금액</div>
       </ListStyle>
       {list.map((data) => (
-        <ListStyle key={data.desc}>
+        <ListStyle key={data.desc} onClick={() => goDetail(data.id)}>
           <div>{data.type}</div>
           <div>{data.desc}</div>
           <div>{changeInPrice(data.price)}원</div>

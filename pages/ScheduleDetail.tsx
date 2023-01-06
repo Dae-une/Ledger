@@ -61,6 +61,10 @@ const ScheduleDetail = () => {
     getData();
   }, []);
 
+  if (!title) {
+    return null;
+  }
+
   return (
     <>
       <Header>
@@ -76,13 +80,13 @@ const ScheduleDetail = () => {
         <button onClick={onEdit}>수정하기</button>
       </ButtonWrap>
       {showEditInfoModal && (
-        <InfoModal setShowModal={setShowEditInfoModal} message={'수정되었습니다.'} btnText={'확인'} linkTo={goBack} />
+        <InfoModal setShowModal={setShowEditInfoModal} message={'수정되었어요.'} btnText={'확인'} linkTo={goBack} />
       )}
       {showdeleteInfoModal && (
-        <InfoModal setShowModal={setShowDeleteInfoModal} message={'삭제되었습니다.'} btnText={'확인'} linkTo={goBack} />
+        <InfoModal setShowModal={setShowDeleteInfoModal} message={'삭제되었어요.'} btnText={'확인'} linkTo={goBack} />
       )}
       {showErrorModal && (
-        <InfoModal setShowModal={setShowErroModal} message={'입력이 잘못되었습니다.'} btnText={'확인'} />
+        <InfoModal setShowModal={setShowErroModal} message={'입력하지 않은 곳이 있어요.'} btnText={'확인'} />
       )}
     </>
   );
