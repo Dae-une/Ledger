@@ -1,5 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useDateStore from '../../store/useDateStore';
 import { LedgerType, ScheduleType } from '../../types/types';
 import { DayWrap, IsToday, IsSelected, Dot, DotWrap } from './styles';
@@ -12,6 +12,7 @@ interface Props {
 }
 
 const DateCell = ({ date, onClick, isSelected, list }: Props) => {
+  // const [data, setData] = useState();
   const { baseDate } = useDateStore();
   const today = dayjs();
   const isCurrentMonth = date.month() === baseDate.month();
@@ -23,10 +24,12 @@ const DateCell = ({ date, onClick, isSelected, list }: Props) => {
   };
 
   const getFilteredData = useCallback((arr: any[] | undefined) => {
-    return arr?.filter((v) => v.date === date.format('YYYY-MM-DD'));
+    return arr?.filter((v) => v.date === date.format('YYYY-MM-DD') || v.startDate === date.format('YYYY-MM-DD'));
   }, []);
 
   const data = getFilteredData(list);
+
+  console.log(data);
 
   return (
     <>

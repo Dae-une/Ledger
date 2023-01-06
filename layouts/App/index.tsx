@@ -2,7 +2,6 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BottomTaps from '../../components/BottomTaps/BottomTaps';
-import Header from '../../components/Header/Header';
 import Ledger from '../../pages/Ledger';
 import Profile from '../../pages/Profile';
 import RegistLedger from '../../pages/RegistLedger';
@@ -10,11 +9,6 @@ import RegistSchedule from '../../pages/RegistSchedule';
 import Schedule from '../../pages/Schedule';
 import SignIn from '../../pages/SignIn';
 import { AppContainer } from './styles';
-
-if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('../../mocks/browser');
-  worker.start();
-}
 
 const App = () => {
   const queryClientRef = React.useRef<QueryClient>();

@@ -38,7 +38,8 @@ const LedgerRegist = () => {
   }, []);
 
   const onSubmit = useCallback(() => {
-    addNewLedger({ type, date, desc, price });
+    const [year, month, iDate] = date.split('-');
+    addNewLedger({ type, desc, price, year, month, date: iDate });
     setShowInfoModal(true);
   }, [type, date, desc, price]);
 

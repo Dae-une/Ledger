@@ -34,7 +34,6 @@ const BottomTaps = () => {
     }
   }, []);
 
-  console.log(userName);
   return (
     <BottomTapWrap>
       <ButtonsWrap>

@@ -31,13 +31,13 @@ const ScheduleRegist = () => {
     if (!title || !title.trim() || !desc || !desc.trim()) {
       return setShowErroModal(true);
     }
-    const [startY, startM, startD] = startDate.split('-');
-    const [endY, endM, endD] = endDate.split('-');
+    const [startYear, startMonth, startD] = startDate.split('-');
+    const [endYear, endMonth, endD] = endDate.split('-');
 
-    if (startM > endM || (startD > endD && startM <= endM)) {
+    if (startMonth > endMonth || (startD > endD && startMonth <= endMonth)) {
       return setShowErroModal(true);
     }
-    addNewSchedule({ title, desc, startDate, endDate });
+    addNewSchedule({ title, desc, startDate: startD, endDate: endD, startMonth, startYear, endMonth, endYear });
     setShowInfoModal(true);
   }, [title, desc, startDate, endDate]);
 
