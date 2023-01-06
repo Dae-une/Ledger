@@ -21,7 +21,7 @@ export const handlers = [
     const [year, month, date] = data.split('-');
 
     const returnData = scheduleData.filter((schedule) => {
-      const [dYear, dMonth, dDate] = schedule.date.split('-');
+      const [dYear, dMonth, dDate] = schedule.startDate.split('-');
       return dYear === year && month === dMonth;
     });
 

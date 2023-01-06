@@ -1,12 +1,10 @@
 import React from 'react';
 import { useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
 import useDateStore from '../../store/useDateStore';
 import { HeaderWrap, Arrow } from './styles';
 
 const Header = () => {
   const { baseDate, addMonth, subMonth } = useDateStore();
-  const { pathname } = useLocation();
 
   const onIncreaseMonth = useCallback(() => {
     addMonth();
@@ -15,10 +13,6 @@ const Header = () => {
   const onDecreaseMonth = useCallback(() => {
     subMonth();
   }, []);
-
-  if (pathname === '/profile' || pathname === '/signin') {
-    return null;
-  }
 
   return (
     <HeaderWrap>

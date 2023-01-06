@@ -8,5 +8,6 @@ export interface LedgerType {
 export interface ScheduleType {
   title: string;
   desc: string;
-  date: string;
+  startDate: string;
+  endDate: string;
 }

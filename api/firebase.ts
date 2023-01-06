@@ -1,3 +1,4 @@
+import { ScheduleType } from './../types/types';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { v4 as uuid } from 'uuid';
@@ -24,4 +25,11 @@ export const addNewLedger = async (data: LedgerType) => {
   const ledgerRef = doc(fireStore, 'ledger', id);
 
   await setDoc(ledgerRef, data);
+};
+
+export const addNewSchedule = async (data: ScheduleType) => {
+  const id = uuid();
+  const scheduleRef = doc(fireStore, 'schedule', id);
+
+  await setDoc(scheduleRef, data);
 };

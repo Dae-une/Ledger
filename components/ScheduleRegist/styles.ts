@@ -7,7 +7,23 @@ export const Header = styled.div`
   align-items: center;
   border: 1px solid rgb(228, 228, 228);
   font-size: 1.3rem;
-  margin-bottom: 1rem;
+`;
+
+export const GoBack = styled.div`
+  position: absolute;
+  left: 2.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+`;
+
+export const TitleInput = styled.input`
+  height: 3rem;
+  width: 36.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgb(228, 228, 228);
 `;
 
 export const InputWrap = styled.div`
@@ -22,14 +38,12 @@ export const InputWrap = styled.div`
     text-align: center;
     width: 20%;
   }
-  input,
-  textarea {
-    cursor: pointer;
-    resize: none;
+  input {
     outline: none;
     border: none;
     height: 1.3rem;
     width: 100%;
+    cursor: pointer;
   }
 `;
 
@@ -52,11 +66,4 @@ export const ButtonWrap = styled.div`
       border: 1px solid black;
     }
   }
-`;
-
-export const GoBack = styled.div`
-  position: absolute;
-  left: 2.2rem;
-  font-size: 2rem;
-  cursor: pointer;
 `;

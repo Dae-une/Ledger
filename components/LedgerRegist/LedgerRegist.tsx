@@ -5,7 +5,7 @@ import { addNewLedger } from '../../api/firebase';
 import changeInPrice from '../../utils/changeInPrice';
 import InfoModal from '../InfoModal/InfoModal';
 import MiniCalendar from '../MiniCalendar/MiniCalendar';
-import { ModalHeader, InputWrap, ButtonWrap } from './styles';
+import { Header, InputWrap, ButtonWrap, GoBack } from './styles';
 
 const LedgerRegist = () => {
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
@@ -48,7 +48,10 @@ const LedgerRegist = () => {
 
   return (
     <>
-      <ModalHeader>가계부 등록</ModalHeader>
+      <Header>
+        <GoBack onClick={goBack}>&lt;</GoBack>
+        <span>가계부 등록</span>
+      </Header>
       <InputWrap>
         <label>날짜</label>
         <input placeholder={date} readOnly value={date} onClick={onShowCalendar} />

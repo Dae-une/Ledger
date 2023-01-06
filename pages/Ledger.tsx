@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import AddButton from '../components/AddButton/AddButton';
 import Calendar from '../components/Calendar/Calendar';
+import Header from '../components/Header/Header';
 import LedgerList from '../components/LedgerList/LedgerList';
 import { getLedger } from '../mocks/api';
 import useDateStore from '../store/useDateStore';
@@ -17,6 +18,7 @@ const Ledger = () => {
 
   return (
     <>
+      <Header />
       <Calendar data={data} />
       <LedgerList list={selectedData} />
       <AddButton />

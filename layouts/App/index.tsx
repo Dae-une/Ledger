@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Ledger from '../../pages/Ledger';
 import Profile from '../../pages/Profile';
 import RegistLedger from '../../pages/RegistLedger';
+import RegistSchedule from '../../pages/RegistSchedule';
 import Schedule from '../../pages/Schedule';
 import SignIn from '../../pages/SignIn';
 import { AppContainer } from './styles';
@@ -25,11 +26,11 @@ const App = () => {
     <QueryClientProvider client={queryClientRef.current}>
       <AppContainer>
         <BrowserRouter>
-          <Header />
           <Routes>
             <Route path="/" element={<Ledger />} />
             <Route path="/regist" element={<RegistLedger />} />
             <Route path="/schedule" element={<Schedule />} />
+            <Route path="/schedule/regist" element={<RegistSchedule />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/signin" element={<SignIn />} />
           </Routes>
