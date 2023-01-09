@@ -6,9 +6,10 @@ interface Props {
   placeholder: string;
   setState: Dispatch<SetStateAction<string>>;
   value: string;
+  readonly?: boolean;
 }
 
-const TextInput = ({ label, placeholder, setState, value }: Props) => {
+const TextInput = ({ label, placeholder, setState, value, readonly }: Props) => {
   const onChangeState = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setState(e.target.value);
   }, []);
@@ -17,7 +18,7 @@ const TextInput = ({ label, placeholder, setState, value }: Props) => {
     <>
       <InputWrap>
         <label>{label}</label>
-        <input placeholder={placeholder} value={value} onChange={onChangeState} />
+        <input placeholder={placeholder} value={value} onChange={onChangeState} readOnly={readonly} />
       </InputWrap>
     </>
   );

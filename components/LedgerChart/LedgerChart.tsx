@@ -5,6 +5,7 @@ import { getLedgerList } from '../../api/Ledger';
 import { LedgerType } from '../../types/types';
 import dayjs from 'dayjs';
 import { chageToChart } from '../../utils/changeChart';
+import { Empty } from '../LedgerList/styles';
 
 const LedgerChart = () => {
   const [data, setData] = useState<LedgerType[]>([]);
@@ -19,6 +20,10 @@ const LedgerChart = () => {
     };
     getList();
   }, []);
+
+  if (!chartData.length) {
+    return <Empty>지출 내역이없어요.</Empty>;
+  }
 
   return (
     <>

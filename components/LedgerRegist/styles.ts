@@ -31,6 +31,21 @@ export const ButtonWrap = styled.div`
   }
 `;
 
+export const TypeWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+`;
+
 export const GoBack = styled.div`
   position: absolute;
   left: 2.2rem;

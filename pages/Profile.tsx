@@ -16,8 +16,6 @@ const Profile = () => {
       </UserInfo>
       <Label>한달 소비내역</Label>
       <LedgerChart />
-      <Label>오늘의 소비내역</Label>
-      <Label>오늘의 일정</Label>
       <BottomTaps />
     </>
   );
