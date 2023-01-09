@@ -15,5 +15,7 @@
 
 ### 3. 일정 CRUD
 * 날짜를 선택하여 일정을 기록하고, 날짜 마다 일정 리스트를 볼 수 있습니다.
+<div>
+<img width="150" alt="스크린샷 2023-01-09 오후 8 42 15" src="https://user-images.githubusercontent.com/104764474/211301513-b78e2cd7-7875-486a-97bc-ea2e1aa1663b.png">
 <img width="150" alt="스크린샷 2023-01-09 오후 8 44 03" src="https://user-images.githubusercontent.com/104764474/211300758-26688a9e-72c6-47a1-97dc-1c5dc7cdba82.png">
-
+</div>
