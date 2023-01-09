@@ -24,11 +24,13 @@ const ScheduleList = ({ list }: Props) => {
       <ListStyle>
         <div>제목</div>
         <div>내용</div>
+        <div>기간</div>
       </ListStyle>
       {list.map((data) => (
         <ListStyle key={data.title} onClick={() => goDetail(data.id)}>
           <div>{data.title}</div>
           <div>{data.desc}</div>
+          <div>{`${data.startDate.substring(5)} ~ ${data.endDate.substring(5)}`}</div>
         </ListStyle>
       ))}
     </ListWrap>

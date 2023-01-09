@@ -79,6 +79,6 @@ export const editLedger = async (id: string, data: LedgerDB) => {
   const targetId = res.docs.map((doc) => {
     return doc.id;
   });
-  const ledgerDoc = doc(fireStore, 'ledeger', targetId[0]);
+  const ledgerDoc = doc(fireStore, 'ledger', targetId[0]);
   await updateDoc(ledgerDoc, { ...data });
 };

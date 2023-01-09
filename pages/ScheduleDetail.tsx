@@ -5,7 +5,6 @@ import CalendarInput from '../components/Common/CalendarInput/CalendarInput';
 import TextInput from '../components/Common/TextInput/TextInput';
 import InfoModal from '../components/InfoModal/InfoModal';
 import { ButtonWrap, GoBack, Header, TitleInput } from '../components/ScheduleRegist/styles';
-import { ScheduleType } from '../types/types';
 
 const ScheduleDetail = () => {
   const [showEditInfoModal, setShowEditInfoModal] = useState(false);

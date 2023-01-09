@@ -16,7 +16,7 @@ const LedgerList = ({ list }: Props) => {
   }, 0);
 
   const goDetail = useCallback((id: string) => {
-    navigate(`/detail/${id}`);
+    navigate(`/ledger/detail/${id}`);
   }, []);
 
   if (!list?.length) {

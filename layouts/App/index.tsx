@@ -23,14 +23,14 @@ const App = () => {
       <AppContainer>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Ledger />} />
-            <Route path="/regist" element={<RegistLedger />} />
-            <Route path="/detail/:id" element={<LedgerDetail />} />
+            <Route path="/" element={<SignIn />} />
+            <Route path="/ledger" element={<Ledger />} />
+            <Route path="/ledger/regist" element={<RegistLedger />} />
+            <Route path="/ledger/detail/:id" element={<LedgerDetail />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/schedule/regist" element={<RegistSchedule />} />
             <Route path="/schedule/detail/:id" element={<ScheduleDetail />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/signin" element={<SignIn />} />
           </Routes>
           <BottomTaps />
         </BrowserRouter>

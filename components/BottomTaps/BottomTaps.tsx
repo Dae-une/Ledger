@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export const BottomTapsLinks = [
   {
     title: '메인',
-    path: '/',
+    path: '/ledger',
     icon: home,
   },
   {

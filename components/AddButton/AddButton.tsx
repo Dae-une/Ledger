@@ -7,8 +7,7 @@ const AddButton = () => {
   const { pathname } = useLocation();
 
   const onHandleLink = useCallback(() => {
-    if (pathname === '/') navigate('/regist');
-    if (pathname === '/schedule') navigate('/schedule/regist');
+    navigate(`${pathname}/regist`);
   }, [pathname]);
 
   return (

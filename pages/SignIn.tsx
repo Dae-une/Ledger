@@ -21,7 +21,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (userName) {
-      navigate('/');
+      navigate('/ledger');
     }
   }, [userName]);
 

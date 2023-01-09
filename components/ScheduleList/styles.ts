@@ -7,12 +7,12 @@ export const ListWrap = styled.div`
 export const ListStyle = styled.div`
   display: flex;
   width: 100%;
-  height: 4rem;
+  min-height: 4rem;
   text-align: center;
   align-items: center;
   border-bottom: 1px solid rgb(228, 228, 228);
   cursor: pointer;
-  & :first-child {
+  div {
     width: 30%;
   }
 `;
